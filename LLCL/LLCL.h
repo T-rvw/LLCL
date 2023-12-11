@@ -4,6 +4,7 @@
 #include <LLCL/CPU.h>
 #include <LLCL/Debug.h>
 #include <LLCL/Endian.h>
+#include <LLCL/Math.h>
 #include <LLCL/NameOf.h>
 #include <LLCL/Namespace.h>
 #include <LLCL/Platform.h>

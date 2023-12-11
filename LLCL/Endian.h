@@ -1,5 +1,8 @@
 #pragma once
 
+#include <LLCL/Compiler.h>
+#include <LLCL/Namespace.h>
+
 LLCL_NAMESPACE_BEGIN
 
 enum class Endian
@@ -14,13 +17,11 @@ static inline Endian GetNativeEndian()
 	return Endian::Little;
 #elif defined(__BYTE_ORDER__) && defined(__ORDER_BIG_ENDIAN__) && (__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)
 	return Endian::Big;
-#elif defined(__clang__) && __LITTLE_ENDIAN__
+#elif defined(LLCL_COMPILER_CLANG) && __LITTLE_ENDIAN__
 	return Endian::Little;
-#elif defined(__clang__) && __BIG_ENDIAN__
+#elif defined(LLCL_COMPILER_CLANG) && __BIG_ENDIAN__
 	return Endian::Big;
-#elif defined(_MSC_VER) && (_M_AMD64 || _M_IX86)
-	return Endian::Little;
-#elif defined(__DMC__) && defined(_M_IX86)
+#elif defined(LLCL_COMPILER_MSVC)
 	return Endian::Little;
 #else
 	// Actually, runtime check is the best choice to detect endian because endian is based on CPU Arch at first.

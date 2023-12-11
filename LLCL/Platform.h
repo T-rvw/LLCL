@@ -1,5 +1,7 @@
 #pragma once
 
+#include <LLCL/Namespace.h>
+
 #if defined(_WIN32) || defined(_WIN64)
 	#define LLCL_PLATFORM_WINDOWS
 #elif defined(__linux__)

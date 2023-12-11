@@ -1,5 +1,9 @@
 #pragma once
 
+#include <LLCL/Namespace.h>
+#include <LLCL/Platform.h>
+#include <LLCL/Types.h>
+
 LLCL_NAMESPACE_BEGIN
 
 static void DebugBreakPoint()
@@ -15,14 +19,14 @@ static void DebugBreakPoint()
 #elif defined(LLCL_PLATFORM_LINUX) || defined(LLCL_PLATFORM_ANDROID)
 	raise(SIGTRAP);
 #else
-	int* int3 = (int*)3L;
+	int32* int3 = (int32*)3L;
 	*int3 = 3;
 #endif
 }
 
 static void DebugCrash()
 {
-	int* p = nullptr;
+	int32* p = nullptr;
 	*p = 0;
 }
 

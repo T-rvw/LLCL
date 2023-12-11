@@ -34,8 +34,7 @@
 #if defined(LLCL_COMPILER_CLANG) || defined(LLCL_COMPILER_GCC)
 	#define LLCL_FUNCTION_NAME	__PRETTY_FUNCTION__
 #elif defined(LLCL_COMPILER_MSVC)
-	// TODO : use __FUNCSIG__ ? Seems best match behavior with __PRETTY_FUNCTION__
-	#define LLCL_FUNCTION_NAME	__FUNCTION__
+	#define LLCL_FUNCTION_NAME	__FUNCSIG__
 #else
 	#error Undefined LLCL_FUNCTION_NAME
 #endif
@@ -47,13 +46,3 @@
 // Call Convention
 #define CDECL __cdecl
 #define STDCALL __stdcall
-
-LLCL_NAMESPACE_BEGIN
-
-// Avoid unused warning
-template<typename T>
-void Unused(const T&)
-{
-}
-
-LLCL_NAMESPACE_END

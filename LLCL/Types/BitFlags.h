@@ -1,5 +1,6 @@
 #pragma once
 
+#include <LLCL/Types.h>
 #include <LLCL/TypeTraits.h>
 
 #include <vector>
@@ -26,9 +27,9 @@ public:
 	BitFlags& operator=(BitFlags&&) = default;
 	~BitFlags() = default;
 
-	bool IsEnabled(T e) const { return m_bits[static_cast<std::size_t>(e)]; }
-	void Enable(T e) { m_bits[static_cast<std::size_t>(e)] = true; }
-	void Disable(T e) { m_bits[static_cast<std::size_t>(e)] = false; }
+	bool IsEnabled(T e) const { return m_bits[static_cast<size_t>(e)]; }
+	void Enable(T e) { m_bits[static_cast<size_t>(e)] = true; }
+	void Disable(T e) { m_bits[static_cast<size_t>(e)] = false; }
 	bool operator!=(const BitFlags<T>& rhs) { return m_bits != rhs.m_bits; }
 	bool operator==(const BitFlags<T>& rhs) { return m_bits == rhs.m_bits; }
 

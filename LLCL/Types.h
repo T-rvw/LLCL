@@ -1,26 +1,28 @@
 #pragma once
 
+#include <cstddef>
 #include <cstdint>
 
 LLCL_NAMESPACE_BEGIN
 
-using int8 = std::int8_t;
-using int16 = std::int16_t;
-using int32 = std::int32_t;
-using int64 = std::int64_t;
-using uint8 = std::uint8_t;
-using uint16 = std::uint16_t;
-using uint32 = std::uint32_t;
-using uint64 = std::uint64_t;
+using int8_t = std::int8_t;
+using int16_t = std::int16_t;
+using int32_t = std::int32_t;
+using int64_t = std::int64_t;
+using uint8_t = std::uint8_t;
+using uint16_t = std::uint16_t;
+using uint32_t = std::uint32_t;
+using uint64_t = std::uint64_t;
+using size_t = std::size_t;
 
-static_assert(1 == sizeof(int8));
-static_assert(2 == sizeof(int16));
-static_assert(4 == sizeof(int32));
-static_assert(8 == sizeof(int64));
-static_assert(1 == sizeof(uint8));
-static_assert(2 == sizeof(uint16));
-static_assert(4 == sizeof(uint32));
-static_assert(8 == sizeof(uint64));
+static_assert(1 == sizeof(int8_t));
+static_assert(2 == sizeof(int16_t));
+static_assert(4 == sizeof(int32_t));
+static_assert(8 == sizeof(int64_t));
+static_assert(1 == sizeof(uint8_t));
+static_assert(2 == sizeof(uint16_t));
+static_assert(4 == sizeof(uint32_t));
+static_assert(8 == sizeof(uint64_t));
 
 static_assert(1 == sizeof(bool));
 

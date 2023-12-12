@@ -1,7 +1,7 @@
-#pragma
+#pragma once
 
 #include <LLCL/Namespace.h>
-#include <LLCL/Hash/FNV1aHash.h>
+#include <LLCL/Hash/Hash.h>
 
 #include <functional>
 
@@ -13,7 +13,7 @@ class TStringCrc final
 public:
 	TStringCrc() = default;
 	explicit constexpr TStringCrc(std::string_view sv) : m_hashValue(StringHashFNV1a<T>(sv)) {}
-	explicit constexpr TStringCrc(const char* str, std::size_t n) : m_hashValue(StringHashFNV1a<T>(str, n)) {}
+	explicit constexpr TStringCrc(const char* str, size_t n) : m_hashValue(StringHashFNV1a<T>(str, n)) {}
 	TStringCrc(const TStringCrc&) = default;
 	TStringCrc& operator=(const TStringCrc&) = default;
 	TStringCrc(TStringCrc&&) = default;

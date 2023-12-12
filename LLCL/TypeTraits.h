@@ -33,7 +33,7 @@ template <typename E>
 template <typename T>
 [[nodiscard]] constexpr auto bitsof() noexcept
 {
-	return sizeof(T) * sizeof(uint8);
+	return sizeof(T) * sizeof(uint8_t);
 }
 
 LLCL_NAMESPACE_END

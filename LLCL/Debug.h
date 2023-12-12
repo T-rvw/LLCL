@@ -26,7 +26,7 @@ static void DebugBreakPoint()
 
 static void DebugCrash()
 {
-	int32* p = nullptr;
+	int32_t* p = nullptr;
 	*p = 0;
 }
 

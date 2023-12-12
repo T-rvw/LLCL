@@ -2,6 +2,7 @@
 
 #include <LLCL/Compiler.h>
 #include <LLCL/Namespace.h>
+#include <LLCL/Types.h>
 
 LLCL_NAMESPACE_BEGIN
 

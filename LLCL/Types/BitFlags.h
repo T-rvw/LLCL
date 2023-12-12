@@ -2,7 +2,7 @@
 
 #include <LLCL/TypeTraits.h>
 
-#include <cstring> // std::memset
+#include <vector>
 
 LLCL_NAMESPACE_BEGIN
 
@@ -15,44 +15,25 @@ class BitFlags
 {
 public:
 	static_assert(std::is_enum_v<T>);
-	using StorageType = uint32;
+	// Fixed size of bits calcualted in compile time.
 	static constexpr size_t EnumCount = enum_count<T>();
-	static constexpr size_t ElementCount = EnumCount / (8 * sizeof(StorageType));
-	static constexpr size_t StorageSize = ElementCount * sizeof(StorageType);
 
 public:
-	BitFlags() { std::memset(m_options, 0, StorageSize); }
+	BitFlags() { m_bits.resize(EnumCount, false); }
 	BitFlags(const BitFlags&) = default;
 	BitFlags& operator=(const BitFlags&) = default;
 	BitFlags(BitFlags&&) = default;
 	BitFlags& operator=(BitFlags&&) = default;
 	~BitFlags() = default;
 
-	bool IsEnabled(T e) const
-	{
-		auto index = static_cast<std::size_t>(e);
-		return (m_options[index] & 1) != 0;
-	}
-
-	void Enable(T e)
-	{
-		auto index = static_cast<std::size_t>(e);
-		m_options[index] |= 1 << index;
-	}
-
-	void Disable(T e)
-	{
-		auto index = static_cast<std::size_t>(e);
-		m_options[index] &= ~(1 << index);
-	}
-
-	bool operator==(const BitFlags<T>& rhs)
-	{
-		return false;
-	}
+	bool IsEnabled(T e) const { return m_bits[static_cast<std::size_t>(e)]; }
+	void Enable(T e) { m_bits[static_cast<std::size_t>(e)] = true; }
+	void Disable(T e) { m_bits[static_cast<std::size_t>(e)] = false; }
+	bool operator!=(const BitFlags<T>& rhs) { return m_bits != rhs.m_bits; }
+	bool operator==(const BitFlags<T>& rhs) { return m_bits == rhs.m_bits; }
 
 private:
-	std::uint32_t m_options[ElementCount];
+	std::vector<bool> m_bits;
 };
 
 LLCL_NAMESPACE_END

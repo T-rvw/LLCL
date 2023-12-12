@@ -40,7 +40,7 @@ template<typename T> inline constexpr T Radian() { return One<T>() / Degree<T>()
 
 }
 
-[[nodiscard]] template<typename T> constexpr T DegreeToRadian(T degree) { return degree * constants::Degree<T>(); }
-[[nodiscard]] template<typename T> constexpr T RadianToDegree(T radian) { return radian * constants::Radian<T>(); }
+template<typename T> [[nodiscard]] constexpr T DegreeToRadian(T degree) { return degree * constants::Degree<T>(); }
+template<typename T> [[nodiscard]] constexpr T RadianToDegree(T radian) { return radian * constants::Radian<T>(); }
 
 LLCL_NAMESPACE_END

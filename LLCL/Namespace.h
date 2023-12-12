@@ -14,3 +14,5 @@
 	#define LLCL_NAMESPACE_END \
 		}
 #endif
+
+#define NAME_PREFIX_NAMESPACE(v) LLCL_NAME##::v

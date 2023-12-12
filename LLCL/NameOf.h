@@ -1,7 +1,7 @@
 #pragma once
 
-#include <LLCL/nameof.hpp>
 #include <LLCL/Namespace.h>
+#include <LLCL/ThirdParty/nameof.hpp>
 
 LLCL_NAMESPACE_BEGIN
 

@@ -1,7 +1,7 @@
 #pragma once
 
+#include <LLCL/NameOf.h>
 #include <LLCL/Namespace.h>
-#include <LLCL/nameof.hpp>
 
 #include <type_traits>
 
@@ -28,6 +28,12 @@ template <typename E>
 [[nodiscard]] constexpr auto enum_count() noexcept
 {
 	return nameof::detail::count_v<std::decay_t<E>>;
+}
+
+template <typename T>
+[[nodiscard]] constexpr auto bitsof() noexcept
+{
+	return sizeof(T) * sizeof(uint8);
 }
 
 LLCL_NAMESPACE_END

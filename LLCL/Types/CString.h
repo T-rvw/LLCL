@@ -55,7 +55,7 @@ public:
 	[[nodiscard]] constexpr iterator end() noexcept { return data() + size(); }
 	[[nodiscard]] constexpr const_iterator cbegin() const noexcept { return data(); }
 	[[nodiscard]] constexpr const_iterator cend() const noexcept { return data() + size(); }
-	[[nodiscard]] constexpr const char* operator[](size_t i) const noexcept { return assert(i < size()), Data[i]; }
+	[[nodiscard]] constexpr const char& operator[](size_t i) const noexcept { assert(i < size()); return Data[i]; }
 	[[nodiscard]] constexpr int compare(std::string_view sv) const noexcept { return operator std::string_view().compare(sv); }
 
 	// Conversions to const char*/std::string_view/std::string
@@ -100,7 +100,6 @@ public:
 	[[nodiscard]] constexpr iterator end() noexcept { return data() + size(); }
 	[[nodiscard]] constexpr const_iterator cbegin() const noexcept { return data(); }
 	[[nodiscard]] constexpr const_iterator cend() const noexcept { return data() + size(); }
-	[[nodiscard]] constexpr const char* operator[](size_t) const noexcept { return nullptr; }
 	[[nodiscard]] constexpr int compare(std::string_view sv) const noexcept { return operator std::string_view().compare(sv); }
 
 	// Conversions to const char*/std::string_view/std::string

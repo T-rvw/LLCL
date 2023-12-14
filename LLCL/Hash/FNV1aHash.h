@@ -46,14 +46,14 @@ constexpr T StringHashSeedFNV1a(T seed, const char* str, size_t n) noexcept
 }
 
 template<typename T>
-constexpr T StringHashFNV1a(const char* str, size_t n) noexcept
+inline constexpr T StringHashFNV1a(const char* str, size_t n) noexcept
 {
 	using Traits = details::FNV1aHashTraits<T>;
 	return details::StringHashSeedFNV1a<T>(Traits::Offset, str, n);
 }
 
 template<typename T>
-constexpr T StringHashFNV1a(std::string_view sv) noexcept
+inline constexpr T StringHashFNV1a(std::string_view sv) noexcept
 {
 	return StringHashFNV1a<T>(sv.data(), sv.size());
 }

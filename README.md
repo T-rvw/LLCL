@@ -1,6 +1,6 @@
 # LLCL
 
-A Header-only helper to build your own Low Level Core Layer.
+A helper to build your own Low Level Core Layer.
 
 ## Introduction
 
